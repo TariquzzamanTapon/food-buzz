@@ -2,14 +2,19 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Outlet } from 'react-router-dom'
+import Header from './components/Pages/Header/Header'
+import Footer from './components/Pages/Footer/Footer'
 
 function App() {
 
   return (
     <>
-      <h1 className="bg-slate-500 text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <div className='container mx-auto'>
+        <Header></Header>
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </div>
     </>
   )
 }
