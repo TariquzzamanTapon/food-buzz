@@ -36,7 +36,7 @@ const Header = () => {
                     {
                         user ? <div className='flex'>
                             <img src="" alt="" />
-                            <Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogout className='h-6 w-6'></HiOutlineLogout>LOGOUT</Link>
+                            <Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogout className='h-6 w-6'></HiOutlineLogout>Logout</Link>
                         </div> :
                             <><Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin>Log in</Link></>
                     }
