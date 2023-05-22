@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 import { HiOutlineLogout } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import Chef from '../chef/chef';
 
 const Home = () => {
+    const chefs = useLoaderData();
     return (
         <>
             {/* banner section  */}
@@ -19,6 +21,13 @@ const Home = () => {
                 <div className="ride-side md:w-1/2">
                     <img className='object-cover' src="https://img.freepik.com/free-vector/professional-chefs-cooking-culinary-chefs-hand-drawn-sketch-vector-illustration_460848-14882.jpg?w=740&t=st=1684735512~exp=1684736112~hmac=cecff8c34398185f040fc3c702a3ffbf03474bc5ba004f6f2fc6252279bc96a2" alt="" />
                 </div>
+            </div>
+
+            {/* chef section */}
+            <div className="grid md:grid-cols-3 grid-cols-1 px-2 gap-3">
+                {
+                    chefs.map(chef => <Chef key={chef.id} chef={chef}></Chef>)
+                }
             </div>
         </>
     );
