@@ -1,40 +1,59 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { HiOutlineLockClosed, HiOutlineLogin, HiOutlineLogout, HiOutlineMail } from "react-icons/hi";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 
 
 
 const Login = () => {
+    const { singIn } = useContext(AuthContext);
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        singIn(email, password)
+            .then(result => {
+                console.log(result.user)
+                console.log(result.user)
+            }).catch(error => {
+                console.log(error)
+            })
+    }
+
     return (
         <>
             <div className="shadow-xl md:flex justify-between rounded p-2 md:p-7 m-3 md:w-2/3 mx-auto">
 
                 <div className='md:h-1/2 md:w-1/2 text-center p-4 mt-10 '>
                     <h1 className='text-2xl font-bold p-2 md:p-3 mb-4'>Sign in</h1>
-                    <form action="">
+                    <form onSubmit={handleLogin}>
                         <div className="input-group mb-3">
                             <span>
                                 <HiOutlineMail className='h-6 w-6'></HiOutlineMail>
                             </span>
-                            <input type="email" placeholder="Email " className="input input-bordered w-full" required />
+                            <input type="email" name='email' placeholder="Email " className="input input-bordered w-full" required />
                         </div>
                         <div className="input-group mb-3">
                             <span>
                                 <HiOutlineLockClosed className='h-6 w-6'></HiOutlineLockClosed>
                             </span>
-                            <input type="password" placeholder="Password " className="input input-bordered w-full" required />
+                            <input type="password" placeholder="Password " name='password' className="input input-bordered w-full" required />
+                        </div>
+
+                        <div className='mb-3'>
+                            <button className='btn rounded-lg'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin>Sign In</button>
+                        </div>
+
+                        <p className='mt-4'>Or Sign in with social platform</p>
+                        <div className='my-1'>
+                            <button><FaGithub className='h-6 w-6 mr-2' title='Sign with GitHub'></FaGithub></button>
+                            <button><FaGoogle className='h-6 w-6 mr-2' title='Sign with Google'></FaGoogle></button>
                         </div>
                     </form>
-                    <div className='mb-3'>
-                        <button className='btn rounded-lg'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin>Sign In</button>
-                    </div>
-                    <p className='mt-4'>Or Sign in with social platform</p>
-                    <div className='my-1'>
-                        <button><FaGithub className='h-6 w-6 mr-2' title='Sign with GitHub'></FaGithub></button>
-                        <button><FaGoogle className='h-6 w-6 mr-2' title='Sign with Google'></FaGoogle></button>
-                    </div>
+
                 </div>
 
                 {/* new brand */}

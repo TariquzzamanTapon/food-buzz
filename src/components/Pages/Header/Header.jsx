@@ -1,8 +1,10 @@
-import React from 'react';
-import { HiOutlineLogin } from 'react-icons/hi';
+import React, { useContext } from 'react';
+import { HiOutlineLogin, HiOutlineLogout } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
     return (
         <>
             <div className="navbar bg-base-100 shadow-amber-100 shadow ">
@@ -31,8 +33,15 @@ const Header = () => {
                             <Link>Log out</Link>
                         </div> : <Link>Log in</Link>
                     } */}
-
-                    <Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin>Log in</Link>
+                    {
+                        user ? <div className='flex'>
+                            <img src="" alt="" />
+                            <Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogout className='h-6 w-6'></HiOutlineLogout>LOGOUT</Link>
+                        </div> :
+                            <><Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin>Log in</Link></>
+                    }
+{/* 
+                    <Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin>Log in</Link> */}
 
                 </div>
             </div>
