@@ -1,0 +1,56 @@
+import React from 'react';
+import { HiOutlineLockClosed, HiOutlineLogin, HiOutlineLogout, HiOutlineMail } from "react-icons/hi";
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+
+
+
+
+const Login = () => {
+    return (
+        <>
+            <div className="shadow-xl md:flex justify-between rounded p-2 md:p-7 m-3 md:w-2/3 mx-auto">
+
+                <div className='md:h-1/2 md:w-1/2 text-center p-4 mt-10 '>
+                    <h1 className='text-2xl font-bold p-2 md:p-3 mb-4'>Sign in</h1>
+                    <form action="">
+                        <div className="input-group mb-3">
+                            <span>
+                                <HiOutlineMail className='h-6 w-6'></HiOutlineMail>
+                            </span>
+                            <input type="email" placeholder="Email " className="input input-bordered w-full" />
+                        </div>
+                        <div className="input-group mb-3">
+                            <span>
+                                <HiOutlineLockClosed className='h-6 w-6'></HiOutlineLockClosed>
+                            </span>
+                            <input type="password" placeholder="Password " className="input input-bordered w-full" />
+                        </div>
+                    </form>
+                    <div className='mb-3'>
+                        <button className='btn rounded-lg'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin> Login</button>
+                    </div>
+                    <p className='mt-4'>Or Sign in with social platform</p>
+                    <div className='my-1'>
+                        <button><FaGithub className='h-6 w-6 mr-2' title='Sign with GitHub'></FaGithub></button>
+                        <button><FaGoogle className='h-6 w-6 mr-2' title='Sign with Google'></FaGoogle></button>
+                    </div>
+                </div>
+
+                {/* new brand */}
+                <div className='md:h-1/2 md:w-1/2 text-center p-4'>
+                    <h1 className='text-2xl font-bold p-2 md:p-3'>New to Brand ?</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure ducimus minus sequi assumenda ?</p>
+                    <div className='mt-2'>
+                        <Link to='/register' className='btn rounded-lg'><HiOutlineLogout className='h-6 w-6'></HiOutlineLogout>Sign up</Link>
+                    </div>
+                    <img src="https://img.freepik.com/free-vector/user-verification-unauthorized-access-prevention-private-account-authentication-cyber-security-people-entering-login-password-safety-measures_335657-3530.jpg?w=740&t=st=1684730187~exp=1684730787~hmac=353b04c5a88ab2bf4066d93bc4f21fb163c1c80c5a4a2f59784470f532b87c41" alt="" />
+
+                </div>
+
+            </div>
+        </>
+    );
+};
+
+export default Login;
