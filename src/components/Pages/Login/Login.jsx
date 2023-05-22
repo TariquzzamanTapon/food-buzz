@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { HiOutlineLockClosed, HiOutlineLogin, HiOutlineLogout, HiOutlineMail } from "react-icons/hi";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 
@@ -9,6 +9,11 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Login = () => {
     const { singIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    // console.log(location, 'login')
+    // console.log(location?.state?.from.pathname, 'login state')
+    const from = location?.state?.from?.pathname || '/'
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -16,8 +21,8 @@ const Login = () => {
 
         singIn(email, password)
             .then(result => {
-                console.log(result.user)
-                console.log(result.user)
+                e.target.reset();
+                navigate(from)
             }).catch(error => {
                 console.log(error)
             })

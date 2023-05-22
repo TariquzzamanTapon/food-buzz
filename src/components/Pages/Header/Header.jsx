@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogout = () => {
+        logOut();
+    }
+
+    console.log(user, 'come form header')
     return (
         <>
             <div className="navbar bg-base-100 shadow-amber-100 shadow ">
@@ -35,12 +40,14 @@ const Header = () => {
                     } */}
                     {
                         user ? <div className='flex'>
-                            <img src="" alt="" />
-                            <Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogout className='h-6 w-6'></HiOutlineLogout>Logout</Link>
+                            <div className='rounded-full w-10 mx-2'>
+                                <img title={user?.displayName} src={user?.photoURL} alt="" />
+                            </div>
+                            <Link onClick={handleLogout} className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogout className='h-6 w-6'></HiOutlineLogout>Logout</Link>
                         </div> :
                             <><Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin>Log in</Link></>
                     }
-{/* 
+                    {/* 
                     <Link to="login" className='bg-orange-200 font-bold hover:bg-orange-300 hover:text-white py-2 px-3 rounded flex items-center'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin>Log in</Link> */}
 
                 </div>

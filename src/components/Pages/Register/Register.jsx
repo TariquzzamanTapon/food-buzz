@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { HiOutlineLockClosed, HiOutlineLogin, HiOutlineMail, HiOutlinePhotograph, HiUser } from "react-icons/hi";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
-    const navigate = useNavigate()
+    const { createUser, userProfile } = useContext(AuthContext);
+    const [error, setError] = useState([]);
+    const [succes, setSuccess] = useState([]);
+
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -16,7 +18,8 @@ const Register = () => {
         console.log(email, password)
         createUser(email, password)
             .then(result =>{
-                navigate("/")
+                e.target.reset();
+                userProfile(result.user, name, photo);
             })
             .catch(error =>{
                 console.log(error)
