@@ -48,7 +48,7 @@ const Register = () => {
                             <span>
                                 <HiOutlineLockClosed className='h-6 w-6'></HiOutlineLockClosed>
                             </span>
-                            <input type="password" placeholder="Password " className="input input-bordered w-full" />
+                            <input type="password" placeholder="Password " className="input input-bordered w-full"  required/>
                         </div>
                     </form>
                     <div className='mb-3'>
