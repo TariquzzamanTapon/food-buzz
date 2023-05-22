@@ -18,17 +18,17 @@ const Login = () => {
                             <span>
                                 <HiOutlineMail className='h-6 w-6'></HiOutlineMail>
                             </span>
-                            <input type="email" placeholder="Email " className="input input-bordered w-full" />
+                            <input type="email" placeholder="Email " className="input input-bordered w-full" required />
                         </div>
                         <div className="input-group mb-3">
                             <span>
                                 <HiOutlineLockClosed className='h-6 w-6'></HiOutlineLockClosed>
                             </span>
-                            <input type="password" placeholder="Password " className="input input-bordered w-full" />
+                            <input type="password" placeholder="Password " className="input input-bordered w-full" required />
                         </div>
                     </form>
                     <div className='mb-3'>
-                        <button className='btn rounded-lg'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin> Login</button>
+                        <button className='btn rounded-lg'><HiOutlineLogin className='h-6 w-6'></HiOutlineLogin>Sign In</button>
                     </div>
                     <p className='mt-4'>Or Sign in with social platform</p>
                     <div className='my-1'>
