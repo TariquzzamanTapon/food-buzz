@@ -7,6 +7,7 @@ const Register = () => {
     const { createUser, userProfile } = useContext(AuthContext);
     const [error, setError] = useState([]);
     const [succes, setSuccess] = useState([]);
+    const navigate = useNavigate()
 
 
     const handleRegister = (e) => {
@@ -17,14 +18,18 @@ const Register = () => {
         const password = e.target.password.value;
         console.log(email, password)
         createUser(email, password)
-            .then(result =>{
-                e.target.reset();
+            .then(result => {
                 userProfile(result.user, name, photo);
+                setSuccess('Hey, Now you of us.')
+                navigate('/');
+                setError('');
             })
-            .catch(error =>{
-                console.log(error)
+            .catch(error => {
+                setError(error.message);
+                setSuccess('')
+
             })
-        
+
     }
 
     return (
@@ -79,6 +84,8 @@ const Register = () => {
                         </div>
 
                     </form>
+                    <p className='text-xl text-red-500 font-bold'>{error}</p>
+                    <p className='text-xl text-sky-400 font-bold'> {succes}</p>
 
 
                 </div>

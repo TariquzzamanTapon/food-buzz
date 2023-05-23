@@ -24,7 +24,7 @@ const Home = () => {
             </div>
 
             {/* chef section */}
-            <div className="grid md:grid-cols-3 grid-cols-1 px-2 gap-3">
+            <div className="grid md:grid-cols-3 grid-cols-1 px-2 mg:gap-9 gap-5">
                 {
                     chefs.map(chef => <Chef key={chef.id} chef={chef}></Chef>)
                 }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { HiOutlineLockClosed, HiOutlineLogin, HiOutlineLogout, HiOutlineMail } from "react-icons/hi";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -8,12 +8,17 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 
 const Login = () => {
-    const { singIn } = useContext(AuthContext);
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null)
+
+    const { singIn, signGoogle, signGithub } = useContext(AuthContext);
+
     const navigate = useNavigate();
     const location = useLocation();
     // console.log(location, 'login')
     // console.log(location?.state?.from.pathname, 'login state')
-    const from = location?.state?.from?.pathname || '/'
+    const fromChange = location?.state?.from?.pathname || '/';
+
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -22,11 +27,37 @@ const Login = () => {
         singIn(email, password)
             .then(result => {
                 e.target.reset();
-                navigate(from)
+                navigate(fromChange);
+                setSuccess('Login successfully');
+                setError('')
             }).catch(error => {
-                console.log(error)
+                setError(error.message)
+                setSuccess('')
             })
     }
+
+    const handleGoogleSign = () => {
+        signGoogle()
+            .then(result => {
+                navigate(fromChange);
+            })
+            .catch(error => {
+                setError(error.message)
+                setSuccess('')
+            })
+    }
+
+    const handleGithubSign = () => {
+        signGithub()
+        .then(result =>{
+            navigate(fromChange)
+            setError('')
+        })
+        .catch(error =>{
+            setError(error.message)
+        })
+    }
+
 
     return (
         <>
@@ -54,9 +85,11 @@ const Login = () => {
 
                         <p className='mt-4'>Or Sign in with social platform</p>
                         <div className='my-1'>
-                            <button><FaGithub className='h-6 w-6 mr-2' title='Sign with GitHub'></FaGithub></button>
-                            <button><FaGoogle className='h-6 w-6 mr-2' title='Sign with Google'></FaGoogle></button>
+                            <button onClick={handleGithubSign}><FaGithub className='h-6 w-6 mr-2' title='Sign with GitHub'></FaGithub></button>
+                            <button onClick={handleGoogleSign}><FaGoogle className='h-6 w-6 mr-2' title='Sign with Google'></FaGoogle></button>
                         </div>
+                        <p>{error}</p>
+                        <p>{success}</p>
                     </form>
 
                 </div>
