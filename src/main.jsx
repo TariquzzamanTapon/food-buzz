@@ -14,6 +14,7 @@ import Register from './components/Pages/Register/Register.jsx';
 import ChefDetails from './components/Pages/ChefDetails/ChefDetails.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
+import Blog from './components/Pages/Blog/Blog.jsx';
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path :'/blog',
+        element : <Blog></Blog>
       }
     ]
   }

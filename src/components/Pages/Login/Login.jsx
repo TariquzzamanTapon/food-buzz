@@ -40,10 +40,12 @@ const Login = () => {
         signGoogle()
             .then(result => {
                 navigate(fromChange);
+                setSuccess('Login successfully');
+                setError('')
             })
             .catch(error => {
                 setError(error.message)
-                setSuccess('')
+                setSuccess('');
             })
     }
 

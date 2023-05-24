@@ -20,13 +20,13 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 userProfile(result.user, name, photo);
-                setSuccess('Hey, Now you of us.')
+                setSuccess('Hey, Now you are with us.')
                 navigate('/');
                 setError('');
             })
             .catch(error => {
                 setError(error.message);
-                setSuccess('')
+                setSuccess('');
 
             })
 
