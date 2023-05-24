@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
-import { HiOutlineThumbUp } from 'react-icons/hi';
+import { HiOutlineStar, HiOutlineThumbUp, HiStar } from 'react-icons/hi';
 
 const Recipes = ({ recipe }) => {
 
@@ -40,8 +40,8 @@ const Recipes = ({ recipe }) => {
                                 <span> {recipe?.likes}k</span>
                             </div>
                             <div className='flex mx-2'>
-                                <HiOutlineThumbUp className='h-6 w-6'></HiOutlineThumbUp>
-                                <span> rating {recipe?.rating}k</span>
+                                <HiOutlineStar className='h-6 w-6'></HiOutlineStar>
+                                <span> Rating {recipe?.rating}</span>
                             </div>
                         </div>
                     </div>

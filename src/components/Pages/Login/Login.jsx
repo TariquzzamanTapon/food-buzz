@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { HiOutlineLockClosed, HiOutlineLogin, HiOutlineLogout, HiOutlineMail } from "react-icons/hi";
+import { HiOutlineLockClosed, HiOutlineLogin, HiOutlineLogout, HiOutlineMail, HiOutlineX } from "react-icons/hi";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
@@ -51,13 +51,13 @@ const Login = () => {
 
     const handleGithubSign = () => {
         signGithub()
-        .then(result =>{
-            navigate(fromChange)
-            setError('')
-        })
-        .catch(error =>{
-            setError(error.message)
-        })
+            .then(result => {
+                navigate(fromChange)
+                setError('')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
     }
 
 
@@ -90,8 +90,10 @@ const Login = () => {
                             <button onClick={handleGithubSign}><FaGithub className='h-6 w-6 mr-2' title='Sign with GitHub'></FaGithub></button>
                             <button onClick={handleGoogleSign}><FaGoogle className='h-6 w-6 mr-2' title='Sign with Google'></FaGoogle></button>
                         </div>
-                        <p>{error}</p>
-                        <p>{success}</p>
+                        {
+                            error && <p className='text-red-600 font-bold flex items-center'><HiOutlineX className='h-6 w-6'></HiOutlineX>{error}</p>
+                        }
+                        <p className='text-green-400 font-bold'>{success}</p>
                     </form>
 
                 </div>
