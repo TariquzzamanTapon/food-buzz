@@ -26,12 +26,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/chefs')
+        loader: () => fetch('https://chef-hunter-server-tariquzzamantapon.vercel.app/chefs')
       },
       {
         path: ':id',
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader: ({ params }) => fetch(`https://chef-hunter-server-tariquzzamantapon.vercel.app/chefs/${params.id}`)
       },
       {
         path: "/login",
@@ -42,8 +42,8 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path :'/blog',
-        element : <Blog></Blog>
+        path: '/blog',
+        element: <Blog></Blog>
       }
     ]
   }
