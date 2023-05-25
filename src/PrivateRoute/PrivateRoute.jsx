@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <div className="mx-auto"><progress className="progress w-56 "></progress></div>
+        return <div className="mx-auto"><progress className="progress w-56 "></progress></div>;
     }
 
     if (user) {
