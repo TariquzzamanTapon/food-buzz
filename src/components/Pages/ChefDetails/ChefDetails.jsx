@@ -5,8 +5,8 @@ import Recipes from '../Recipes/Recipes';
 const ChefDetails = () => {
     const chef = useLoaderData();
     
-    console.log(chef);
-    const { id, chefPicture, chefName, chefDescription, yearsOfExperience, numberOfRecipes, likes, recipes } = chef;
+    // console.log(chef);
+    const { chefPicture, chefName, chefDescription, yearsOfExperience, numberOfRecipes, likes, recipes } = chef;
     return (
         <>
             <div className='my-3 py-2 shadow'>
@@ -32,7 +32,7 @@ const ChefDetails = () => {
                 </div>
                 <div className='grid md:grid-cols-2 grid-cols-1 gap-3'>
                     {
-                        recipes.map(recipe => <Recipes recipe ={recipe} ></Recipes>)
+                        recipes.map(recipe => <Recipes key={recipe.id} recipe ={recipe} ></Recipes>)
                     }
                     
                 </div>

@@ -10,11 +10,12 @@ const Recipes = ({ recipe }) => {
         toast("Item added")
         setButtonDisabled(true);
     };
-    console.log(recipe);
+    // console.log(recipe);
+    const image = recipe?.recipeImage || 'https://img.freepik.com/free-photo/chicken-skewers-with-slices-sweet-peppers-dill_2829-18813.jpg?w=740&t=st=1684998870~exp=1684999470~hmac=8a33fa0490786b01992e96aca6e515e7ce8a47a888847d04b847b51998b0181a';
     return (
         <>
             <div className="card  bg-base-100 shadow-xl">
-                <figure><img src={recipe?.recipeImage} alt="Shoes" /></figure>
+                <figure><img src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
                         {recipe?.recipeName}
@@ -27,7 +28,7 @@ const Recipes = ({ recipe }) => {
                         </span>
                         <div className='mb-1'>
                             {
-                                recipe?.ingredients?.map(i => <p>{i}</p>)
+                                recipe?.ingredients?.map(i => <p >{i}</p>)
                             }
                         </div>
                         <p className='mb-1'><span className='font-bold'>Cooking Method : </span>{
