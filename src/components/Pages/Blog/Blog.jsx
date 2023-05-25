@@ -1,8 +1,13 @@
 import React from 'react';
+import MyPdf from '../MyPdf/MyPdf';
 
 const Blog = () => {
+    const dowonloadPdf =()=>{
+        console.log('not working');
+    }
     return (
         <div className='my-3'>
+            <button onClick={dowonloadPdf} className='btn btn-info text-left'>Download Pdf</button>
             <h2 className='text-2xl font-bold'>Question Answer</h2>
 
             <p className='font-bold'> Q.1 Tell us the differences between uncontrolled and controlled components.</p>

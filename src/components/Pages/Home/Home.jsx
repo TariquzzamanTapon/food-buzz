@@ -4,6 +4,7 @@ import { HiOutlineDocumentText, HiOutlineLogout, HiOutlineMail } from 'react-ico
 import { Link, useLoaderData } from 'react-router-dom';
 import Chef from '../chef/chef';
 
+
 const Home = () => {
     const chefs = useLoaderData();
     return (
@@ -22,6 +23,7 @@ const Home = () => {
                     <img className='object-cover' src="https://img.freepik.com/free-vector/professional-chefs-cooking-culinary-chefs-hand-drawn-sketch-vector-illustration_460848-14882.jpg?w=740&t=st=1684735512~exp=1684736112~hmac=cecff8c34398185f040fc3c702a3ffbf03474bc5ba004f6f2fc6252279bc96a2" alt="" />
                 </div>
             </div>
+
 
             {/* chef section */}
 
@@ -76,17 +78,17 @@ const Home = () => {
                 <div className="form-control mb-3">
                     <label className="label">
                         <span className="label-text">Your Email</span>
-                       
+
                     </label>
-                    <input type="Email" placeholder="new@gmail.com" className="input input-bordered w-full" required/>
+                    <input type="Email" placeholder="new@gmail.com" className="input input-bordered w-full" required />
                 </div>
-                
+
                 <div className="form-control mb-3">
                     <label className="label">
                         <span className="label-text">Your Subject</span>
-                       
+
                     </label>
-                    <input type="Email" placeholder="Your Subject" className="input input-bordered w-full"  required/>
+                    <input type="Email" placeholder="Your Subject" className="input input-bordered w-full" required />
                 </div>
 
                 <div className="form-control mb-3">
