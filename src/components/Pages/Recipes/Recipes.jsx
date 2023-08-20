@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import { HiOutlineStar, HiOutlineThumbUp, HiStar } from 'react-icons/hi';
+import { GiSelfLove } from 'react-icons/gi';
 
 const Recipes = ({ recipe }) => {
 
@@ -47,8 +48,8 @@ const Recipes = ({ recipe }) => {
                         </div>
                     </div>
                     <div className="card-actions justify-end items-center">
-                        <button onClick={handleClick} className="btn btn-outline" disabled={isButtonDisabled}>favorite</button>
-                        <Toaster />
+                        <button onClick={handleClick} className="btn btn-outline" disabled={isButtonDisabled}><GiSelfLove className='h-6 w-6 text-red-400 mx-1'></GiSelfLove> favorite</button>
+                        
                     </div>
                 </div>
             </div>

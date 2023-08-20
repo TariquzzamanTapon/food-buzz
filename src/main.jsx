@@ -15,6 +15,7 @@ import ChefDetails from './components/Pages/ChefDetails/ChefDetails.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import Blog from './components/Pages/Blog/Blog.jsx';
+import OurMenu from './components/Pages/OurMenu/OurMenu.jsx';
 
 
 const router = createBrowserRouter([
@@ -26,12 +27,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('https://chef-hunter-server-tariquzzamantapon.vercel.app/chefs')
+        loader: () => fetch('http://localhost:5000/chefs')
       },
       {
         path: ':id',
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://chef-hunter-server-tariquzzamantapon.vercel.app/chefs/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
       },
       {
         path: "/login",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: '/our-menu',
+        element: <OurMenu></OurMenu>
       },
       {
         path: '/blog',
