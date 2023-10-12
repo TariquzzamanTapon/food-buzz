@@ -14,9 +14,7 @@ function App() {
       <div>
         <Toaster />
         <Header></Header>
-        <div className='px-1 sm:px-2 md:px-7 lg:px-10'>
-          <Outlet></Outlet>
-        </div>
+        <Outlet></Outlet>
         <Footer></Footer>
       </div>
     </>

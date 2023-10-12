@@ -7,14 +7,18 @@ import Banner from '../Banner/Banner';
 import ContactUs from '../ContactUs/ContactUs';
 import ChefSection from '../ChefSection/ChefSection';
 import Carousel from '../Carousel/Carousel';
+import ImgBanner from '../ImgBanner/ImgBanner';
+import HomeMenu from '../HomeMenu/HomeMenu';
 
 
 const Home = () => {
-    const chefs = useLoaderData();
+   
     return (
         <>
             <Banner></Banner>
-            <ChefSection chefs={chefs}></ChefSection>
+            <ImgBanner></ImgBanner>
+            <ChefSection></ChefSection>
+            <HomeMenu></HomeMenu>
             <Carousel></Carousel>
             <ContactUs></ContactUs>
         </>

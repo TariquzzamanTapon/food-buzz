@@ -16,6 +16,7 @@ import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import Blog from './components/Pages/Blog/Blog.jsx';
 import OurMenu from './components/Pages/OurMenu/OurMenu.jsx';
+import MyCart from './components/Pages/MyCart/MyCart.jsx';
 
 
 const router = createBrowserRouter([
@@ -26,13 +27,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/chefs')
+        element: <Home></Home>
       },
       {
         path: ':id',
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader: ({ params }) => fetch(`https://chef-hunter-server-sigma.vercel.app/chefs/${params.id}`)
       },
       {
         path: "/login",
@@ -45,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: '/our-menu',
         element: <OurMenu></OurMenu>
+      },
+      {
+        path :'/my-cart',
+        element : <MyCart></MyCart>
       },
       {
         path: '/blog',

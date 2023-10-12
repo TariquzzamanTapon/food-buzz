@@ -3,10 +3,13 @@ import { HiOutlineLogin, HiOutlineLogout } from 'react-icons/hi';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { FiShoppingCart } from 'react-icons/fi';
+import { useCarts } from '../../Hooks/useCarts/useCarts';
 
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+    const [carts] = useCarts();
+    // console.log(carts)
     const handleLogout = () => {
         logOut();
     }
@@ -23,11 +26,11 @@ const Header = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><NavLink to='/'>Home</NavLink></li>
-                                <li><NavLink to='/blog'>Blog</NavLink></li>
                                 <li><NavLink to='/our-menu'>Our Menu</NavLink></li>
+                                <li><NavLink to='/blog'>Blog</NavLink></li>
                                 {
                                     user ? <>
-                                        <li><NavLink to='/our-menu'><FiShoppingCart></FiShoppingCart><sup>2</sup> </NavLink></li>
+                                        <li><NavLink to='/my-cart'><FiShoppingCart></FiShoppingCart><sup className='font-bold text-xl'>{carts?.length}</sup> </NavLink></li>
                                     </> : ''
                                 }
                             </ul>
@@ -37,11 +40,11 @@ const Header = () => {
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
                             <li><NavLink to='/'>Home</NavLink></li>
-                            <li><NavLink to='/blog'>Blog</NavLink></li>
                             <li><NavLink to='/our-menu'>Our Menu</NavLink></li>
+                            <li><NavLink to='/blog'>Blog</NavLink></li>
                             {
                                 user ? <>
-                                    <li><NavLink to='/our-menu'><FiShoppingCart></FiShoppingCart><sup>2</sup> </NavLink></li>
+                                    <li><NavLink to='/my-cart'><FiShoppingCart></FiShoppingCart><sup>{carts?.length}</sup> </NavLink></li>
                                 </> : ''
                             }
                         </ul>
